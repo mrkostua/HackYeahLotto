@@ -33,4 +33,17 @@ public class StateActivity extends AppCompatActivity {
         Intent intentAllFeaturesActiivity = new Intent(this, AllFeaturesActivity.class);
         startActivity(intentAllFeaturesActiivity);
     }
+
+
+    private void onBuyTicketClick() {
+
+    }
+
+    private void onBonusBtnClick() {
+    }
+
+    private void onSeeResultBtnClick() {
+    }
+
+
 }
