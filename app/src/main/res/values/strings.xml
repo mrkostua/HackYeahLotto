@@ -4,4 +4,6 @@
     <string name="task_date">Kup los</string>
     <string name="point_state">Stan konta:</string>
     <string name="daily_bonus_name">Bonus</string>
+    <string name="next_draw_const_text">Nestępne losowanie</string>
+    <string name="see_results">Zobacz wyniki</string>
 </resources>
