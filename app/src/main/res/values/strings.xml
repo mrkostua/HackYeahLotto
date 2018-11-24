@@ -6,4 +6,9 @@
     <string name="daily_bonus_name">Bonus</string>
     <string name="next_draw_const_text">Nestępne losowanie</string>
     <string name="see_results">Zobacz wyniki</string>
+    <string name="click_to_see_bonus_for_inviting">Click to see bonus for inviting</string>
+    <string name="choose_a_channel_to_share_your_favourite_application_with_friends_inviting_them_using_your_own_words_or_using_a_predefined_message">
+        Choose a channel to share your favourite application with friends inviting them using your own words or using a
+        predefined message.
+    </string>
 </resources>
