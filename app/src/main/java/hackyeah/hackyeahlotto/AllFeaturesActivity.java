@@ -22,6 +22,13 @@ public class AllFeaturesActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void inviteFriendsViewClickListener(View view) {
+        Intent intentAllFeaturesActiivity = new Intent(this, InviteFriendsActivity.class);
+        startActivity(intentAllFeaturesActiivity);
+    }
+
+
     public void runStateActivity() {
         Intent activity = new Intent(this, StateActivity.class);
         startActivity(activity);
