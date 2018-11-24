@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HackYeahLotto</string>
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
+    <string name="task_date">Kup los</string>
+    <string name="point_state">Stan konta:</string>
+    <string name="daily_bonus_name">Bonus</string>
 </resources>
