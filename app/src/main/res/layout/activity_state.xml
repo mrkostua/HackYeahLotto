@@ -5,12 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".StateActivity"
-        android:background="@color/background">
+        android:background="@drawable/gray_background">
 
 
     <Button
-            android:text="@string/task_date"
-            tools:text="Kup los"
+            android:text="@string/buy_draw"
+            tools:text="@string/buy_draw"
             android:textSize="18sp"
             android:layout_width="0dp"
             android:layout_height="129dp"
