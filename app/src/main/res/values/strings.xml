@@ -13,4 +13,5 @@
         Choose a channel to share your favourite application with friends inviting them using your own words or using a
         predefined message.
     </string>
+    <string name="error_message">Błąd w odczycie.</string>
 </resources>

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class AllFeaturesActivity extends AppCompatActivity {
     private Button stateActivityBtn;
+    private Button drawActivityBtn;
 
 
     @Override
@@ -21,6 +22,13 @@ public class AllFeaturesActivity extends AppCompatActivity {
                 runStateActivity();
             }
         });
+        drawActivityBtn = findViewById(R.id.btn_draw_activity);
+        drawActivityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runDrawsActivity();
+            }
+        });
     }
 
     public void inviteFriendsViewClickListener(View view) {
@@ -31,6 +39,11 @@ public class AllFeaturesActivity extends AppCompatActivity {
 
     public void runStateActivity() {
         Intent activity = new Intent(this, StateActivity.class);
+        startActivity(activity);
+    }
+
+    public void runDrawsActivity() {
+        Intent activity = new Intent(this, DrawActivity.class);
         startActivity(activity);
     }
 

@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".InviteFriendsActivity">
         </activity>
+        <activity android:name=".DrawActivity">
+        </activity>
     </application>
 
 </manifest>
