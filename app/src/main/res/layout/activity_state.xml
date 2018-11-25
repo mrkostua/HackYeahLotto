@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".StateActivity"
-        android:background="@drawable/gray_background">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable name="viewModel" type="hackyeah.hackyeahlotto.StateViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".StateActivity"
+            android:background="@drawable/gray_background">
 
     <Button
             android:text="@string/buy_lottery_ticket"
@@ -18,7 +20,8 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/light_red_button"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="368dp"
@@ -27,13 +30,15 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/buy_ticket_btn">
         <Button
+                android:background="@drawable/circle_button"
                 android:text="@string/point_state"
-                tools:text="250 points"
+                tools:text="@{@string/pointsText(viewModel.points)}"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/point_state_btn"
                 android:layout_weight="1"/>
         <Button
+                android:background="@drawable/circle_button"
                 android:text="@string/daily_bonus_name"
                 tools:text="Daily bonus"
                 android:layout_width="wrap_content"
@@ -72,14 +77,20 @@
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"/>
         <Button
+                android:background="@drawable/light_blue_button"
                 android:text="@string/see_results"
                 android:layout_width="154dp"
                 android:layout_height="71dp"
-                android:id="@+id/see_results_btn" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/see_results_btn"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/next_draw_tv"/>
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/next_draw_tv"/>
     </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>
