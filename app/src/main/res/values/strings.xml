@@ -2,7 +2,9 @@
     <string name="app_name">HackYeahLotto</string>
     <string name="state_activity">State Activity</string>
     <string name="invite_friends">Invite Friends</string>
+    <string name="bonus_reward">Bonus Reward</string>
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
+    <string name="get_bonus_reward">Get Bonus Reward</string>
     <string name="task_date">Buy draw</string>
     <string name="point_state">Actual points:</string>
     <string name="daily_bonus_name">Bonus reward</string>

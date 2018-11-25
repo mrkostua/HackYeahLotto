@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 public class AllFeaturesActivity extends AppCompatActivity {
+
     private Button stateActivityBtn;
+    private Button friendInviteBtn;
+    private Button bonusRewardBtn;
     private Button drawActivityBtn;
 
 
@@ -22,6 +25,20 @@ public class AllFeaturesActivity extends AppCompatActivity {
                 runStateActivity();
             }
         });
+        friendInviteBtn = findViewById(R.id.friend_invite_btn);
+        friendInviteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inviteFriendsViewClickListener();
+            }
+        });
+        bonusRewardBtn = findViewById(R.id.bonus_reward_btn);
+        bonusRewardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bonusRewardViewClickListener();
+            }
+        });
         drawActivityBtn = findViewById(R.id.btn_draw_activity);
         drawActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +48,7 @@ public class AllFeaturesActivity extends AppCompatActivity {
         });
     }
 
-    public void inviteFriendsViewClickListener(View view) {
+    public void inviteFriendsViewClickListener() {
         Intent intentAllFeaturesActiivity = new Intent(this, InviteFriendsActivity.class);
         startActivity(intentAllFeaturesActiivity);
     }
@@ -48,5 +65,8 @@ public class AllFeaturesActivity extends AppCompatActivity {
     }
 
 
-
+    public void bonusRewardViewClickListener() {
+        Intent activity = new Intent(this, BonusRewardActivity.class);
+        startActivity(activity);
+    }
 }
