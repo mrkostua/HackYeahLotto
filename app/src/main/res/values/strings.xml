@@ -3,15 +3,15 @@
     <string name="state_activity">State Activity</string>
     <string name="invite_friends">Invite Friends</string>
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
-    <string name="task_date">Kup los</string>
-    <string name="point_state">Stan konta:</string>
-    <string name="daily_bonus_name">Bonus</string>
-    <string name="next_draw_const_text">Nestępne losowanie</string>
-    <string name="see_results">Zobacz wyniki</string>
+    <string name="task_date">Buy draw</string>
+    <string name="point_state">Actual points:</string>
+    <string name="daily_bonus_name">Bonus reward</string>
+    <string name="next_draw_const_text">Next drawing</string>
+    <string name="see_results">See last results</string>
+    <string name="error_message">Error in fetch.</string>
     <string name="click_to_see_bonus_for_inviting">Click to see bonus for inviting</string>
     <string name="choose_a_channel_to_share_your_favourite_application_with_friends_inviting_them_using_your_own_words_or_using_a_predefined_message">
         Choose a channel to share your favourite application with friends inviting them using your own words or using a
         predefined message.
     </string>
-    <string name="error_message">Błąd w odczycie.</string>
 </resources>
