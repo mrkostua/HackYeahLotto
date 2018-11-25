@@ -17,17 +17,22 @@
 
     <Button
             android:text="@string/invite_friends"
-            android:textColor="@color/textColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bInviteFriendsActivity"
-            android:onClick="inviteFriendsViewClickListener"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:id="@+id/friend_invite_btn" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.524"/>
+    <Button
+            android:text="@string/bonus_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bonus_reward_btn" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="172dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"/>
     <Button
             android:text="DRAW ACTIVITY"
             android:layout_width="wrap_content"
