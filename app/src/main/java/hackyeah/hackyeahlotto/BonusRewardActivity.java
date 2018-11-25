@@ -40,6 +40,7 @@ public class BonusRewardActivity extends AppCompatActivity {
                 getDetailsAboutBonusRewardWonBtn.setVisibility(View.GONE);
                 detailsBonusRewardsTv.setVisibility(View.VISIBLE);
                 pleaseComeBackBabyTv.setVisibility(View.GONE);
+                tryToGetBonusReward.setVisibility(View.GONE);
             }
         });
         tryToGetBonusReward.setOnClickListener(new View.OnClickListener() {
