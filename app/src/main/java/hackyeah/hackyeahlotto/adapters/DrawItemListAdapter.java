@@ -50,7 +50,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
 
         public DrawItemListViewHolder(View itemView) {
             super(itemView);
-            mBuyDateTextView = itemView.findViewById(R.id.tv_buy_date);
+            mBuyDateTextView = itemView.findViewById(R.id.tv_purchase_date);
             mDrawingDate = itemView.findViewById(R.id.tv_drawing_date);
             mGameName = itemView.findViewById(R.id.tv_game_name);
             mGameShortInfoTextView = itemView.findViewById(R.id.tv_game_short_info);

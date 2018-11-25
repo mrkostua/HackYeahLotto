@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">HackYeahLotto</string>
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
-    <string name="task_date">Kup los</string>
-    <string name="point_state">Stan konta:</string>
-    <string name="daily_bonus_name">Bonus</string>
-    <string name="next_draw_const_text">Nestępne losowanie</string>
-    <string name="see_results">Zobacz wyniki</string>
-    <string name="error_message">Błąd w odczycie.</string>
+    <string name="task_date">Buy draw</string>
+    <string name="point_state">Actual points:</string>
+    <string name="daily_bonus_name">Bonus reward</string>
+    <string name="next_draw_const_text">Next drawing</string>
+    <string name="see_results">See last results</string>
+    <string name="error_message">Error in fetch.</string>
 </resources>
