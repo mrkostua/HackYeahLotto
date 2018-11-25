@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +41,6 @@ public class StateActivity extends DaggerAppCompatActivity {
         stateViewModel.subscribeToGPSResults();
         binding.executePendingBindings();
         binding.setLifecycleOwner(this);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

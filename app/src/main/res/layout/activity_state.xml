@@ -39,6 +39,15 @@
                 app:layout_constraintLeft_toLeftOf="@id/imageViewCouch"
         />
 
+        <include
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                layout="@layout/toolbar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
         <Button
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -51,7 +60,8 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
                 android:background="@drawable/light_red_button"/>
 
         <Button

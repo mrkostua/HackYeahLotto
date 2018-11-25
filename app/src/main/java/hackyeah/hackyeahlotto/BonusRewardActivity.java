@@ -71,14 +71,5 @@ public class BonusRewardActivity extends AppCompatActivity {
                 getDetailsAboutBonusRewardWonBtn.setVisibility(View.VISIBLE);
             }
         });
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            finish();
-        }
-        return true;
     }
 }
