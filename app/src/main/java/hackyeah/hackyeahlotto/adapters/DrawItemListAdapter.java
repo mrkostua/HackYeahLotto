@@ -2,21 +2,21 @@ package hackyeah.hackyeahlotto.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import hackyeah.hackyeahlotto.R;
-
-import java.util.Collections;
+import hackyeah.hackyeahlotto.model.Draw;
 
 public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapter.DrawItemListViewHolder> {
 
     private final DrawItemListAdapterOnClickHandler mClickHandler;
-    private String mData;
+    private Draw[] mData;
 
     public interface DrawItemListAdapterOnClickHandler {
-        void onClick(String data);
+        void onClick(Draw draw);
     }
 
     public DrawItemListAdapter(DrawItemListAdapterOnClickHandler clickHandler) {
@@ -25,23 +25,45 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
 
     @Override
     public void onBindViewHolder(DrawItemListViewHolder holder, int position) {
-        String weatherForThisDay = mData;
-        holder.mBuyDateTextView.setText(weatherForThisDay);
+        Draw draw = mData[position];
+        Context context = holder.itemView.getContext();
+        String date = DateUtils.formatDateTime(context, draw.getPurchaseDate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_YEAR);
+        holder.mPurchaseDateTextView.setText(context.getString(R.string.draw_purchase_date_desc,date));
+        date = DateUtils.formatDateTime(context, draw.getDrawingDate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_YEAR);
+        holder.mDrawingDate.setText(context.getString(R.string.draw_drawing_date_desc,date));
+        String drawStatus;
+        switch (draw.getGameStatus()) {
+            case WIN:
+                drawStatus = context.getString(R.string.game_win_status);
+                break;
+            case LOST:
+                drawStatus = context.getString(R.string.game_lost_status);
+                break;
+            case WAITING:
+                drawStatus = context.getString(R.string.game_waiting_status);
+                break;
+            default:
+                drawStatus="";
+        }
+        holder.mDrawStatusTextView.setText(drawStatus);
+        holder.mGameName.setText(draw.getGame().name().replace('_', ' ')); //TODO translate
+        holder.mGameShortInfoTextView.setText("");
+
     }
 
     @Override
     public int getItemCount() {
         if (null == mData) return 0;
-        return Collections.singletonList(mData).size();
+        return mData.length;
     }
 
-    public void setData(String data) {
+    public void setData(Draw[] data) {
         this.mData = data;
         notifyDataSetChanged();
     }
 
     public class DrawItemListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView mBuyDateTextView;
+        private final TextView mPurchaseDateTextView;
         private final TextView mDrawingDate;
         private final TextView mGameName;
         private final TextView mGameShortInfoTextView;
@@ -50,7 +72,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
 
         public DrawItemListViewHolder(View itemView) {
             super(itemView);
-            mBuyDateTextView = itemView.findViewById(R.id.tv_purchase_date);
+            mPurchaseDateTextView = itemView.findViewById(R.id.tv_purchase_date);
             mDrawingDate = itemView.findViewById(R.id.tv_drawing_date);
             mGameName = itemView.findViewById(R.id.tv_game_name);
             mGameShortInfoTextView = itemView.findViewById(R.id.tv_game_short_info);
@@ -63,8 +85,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            String drawBuyDate = mData;
-            mClickHandler.onClick(drawBuyDate);
+            mClickHandler.onClick(mData[adapterPosition]);
         }
     }
 

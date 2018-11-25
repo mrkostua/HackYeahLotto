@@ -9,8 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import hackyeah.hackyeahlotto.adapters.DrawItemListAdapter;
+import hackyeah.hackyeahlotto.api.mock.DrawMockService;
+import hackyeah.hackyeahlotto.model.Draw;
 
 
 public class DrawActivity extends AppCompatActivity implements DrawItemListAdapter.DrawItemListAdapterOnClickHandler {
@@ -54,8 +55,8 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
     }
 
     @Override
-    public void onClick(String data) {
-        Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
+    public void onClick(Draw data) {
+//        Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
     }
 
 //    private RecyclerView.OnScrollListener recyclerViewOnScrollListener = new RecyclerView.OnScrollListener() {
@@ -82,7 +83,7 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
 //        }
 //    };
 
-    public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
+    public class FetchWeatherTask extends AsyncTask<String, Void, Draw[]> {
 
         @Override
         protected void onPreExecute() {
@@ -91,7 +92,7 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
         }
 
         @Override
-        protected String[] doInBackground(String... params) {
+        protected Draw[] doInBackground(String... params) {
 
 //            if (params.length == 0) {
 //                return null;
@@ -113,20 +114,21 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
 //                e.printStackTrace();
 //                return null;
 //            }
-            return new String[]{"test"};
+            return DrawMockService.getDraws(1L);
         }
 
         @Override
-        protected void onPostExecute(String[] data) {
+        protected void onPostExecute(Draw[] data) {
             mLoadingIndicator.setVisibility(View.INVISIBLE);
             if (data != null) {
                 showDrawsDataView();
-                mDrawsAdapter.setData(data[0]);
+                mDrawsAdapter.setData(data);
             } else {
                 showErrorMessage();
             }
         }
     }
+
     private void showErrorMessage() {
         /* First, hide the currently visible data */
         mRecyclerView.setVisibility(View.INVISIBLE);
