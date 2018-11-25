@@ -4,7 +4,7 @@ import android.arch.persistence.room.*
 import android.content.Context
 
 
-@Database(entities = [(GPSDDo::class)], version = 1)
+@Database(entities = [(GPSDDo::class)], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class LocalDB : RoomDatabase() {
     abstract fun gpsDao() : GpsDao

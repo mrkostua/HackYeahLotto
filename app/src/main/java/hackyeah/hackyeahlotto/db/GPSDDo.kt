@@ -12,3 +12,4 @@ data class GPSDDo( //TODO what to save , how to save time ?????
     @PrimaryKey(autoGenerate = true) var id: Int? = null, var latitutde: Double = 0.0,
     var longitude: Double = 0.0,
     var date: Date?)
+//TODO to save speed lat, long,
