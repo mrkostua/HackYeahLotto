@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".StateActivity"
-        android:background="@drawable/gray_background">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel" type="hackyeah.hackyeahlotto.StateViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".StateActivity"
+            android:background="@color/gray_background">
 
 
     <Button
@@ -28,7 +31,7 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/buy_ticket_btn">
         <Button
                 android:text="@string/point_state"
-                tools:text="250 points"
+                tools:text="@{@string/pointsText(viewModel.points)}"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/point_state_btn"
@@ -82,4 +85,5 @@
                 android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/next_draw_tv"/>
     </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

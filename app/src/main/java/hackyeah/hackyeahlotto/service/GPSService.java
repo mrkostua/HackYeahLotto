@@ -52,7 +52,7 @@ public class GPSService extends Service {
         public void onLocationChanged(Location location) {
             mLastLocation = location;
             Log.i(TAG, "LocationChanged: " + (dbHelper == null ? "null" : "not"));
-            Toast.makeText(getApplicationContext(), "Tracking is started successfully", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Hi bro", Toast.LENGTH_LONG).show();
             disposables.add(dbHelper.addGPSData(new GPSDDo(null, location.getLatitude(), location.getLongitude(), location.getSpeed(), location.getTime()))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -111,9 +111,10 @@ public class GPSService extends Service {
             try {
                 mLocationManager.removeUpdates(mLocationListener);
             } catch (Exception ex) {
-                Log.i(TAG, "fail to remove location listners, ignore", ex);
+                Log.i(TAG, "fail to remove location listeners, ignore", ex);
             }
         }
+        disposables.dispose();
     }
 
     private void initializeLocationManager() {
