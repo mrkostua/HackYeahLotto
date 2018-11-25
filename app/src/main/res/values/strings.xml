@@ -24,4 +24,12 @@
     <string name="draw_purchase_date_desc">Purchase date:%s</string>
     <string name="draw_drawing_date_desc">Drawing date: %s</string>
     <string name="buy_lottery_ticket">Buy lottery ticket</string>
+    <string name="you_won">YOU WON</string>
+    <string name="definitely_check_tomorrow_your_new_reward">Definitely check tomorrow your new reward</string>
+    <string name="bonus_lottery">BONUS LOTTERY</string>
+    <string name="click_the_trasure_to_get_your_ndaily_bonus">Click the trasure to get your daily bonus</string>
+    <string name="you_won_info">
+        You probably have won (or lost) and this text should explain how it comes and what next steps you can do to make it
+        happen again.
+    </string>
 </resources>
