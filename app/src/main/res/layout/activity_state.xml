@@ -3,12 +3,41 @@
 
     <data>
         <variable name="viewModel" type="hackyeah.hackyeahlotto.StateViewModel"/>
+        <import type="java.lang.String"/>
     </data>
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".StateActivity"
             android:background="@drawable/gray_background">
+        <ImageView
+                android:layout_marginTop="8dp"
+                android:id="@+id/imageViewBicycle"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_bicycle"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewCouch"
+                app:layout_constraintTop_toBottomOf="@+id/point_state_btn"
+                app:layout_constraintStart_toStartOf="@+id/point_state_btn"/>
+        <ImageView
+                android:layout_marginTop="4dp"
+                android:id="@+id/imageViewCouch"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_couch"
+                app:layout_constraintTop_toBottomOf="@id/imageViewBicycle"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewTickets"
+                app:layout_constraintStart_toStartOf="@+id/imageViewBicycle"/>
+
+        <ImageView
+                android:layout_marginTop="4dp"
+                android:id="@+id/imageViewTickets"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_tickets"
+                app:layout_constraintTop_toBottomOf="@id/imageViewCouch"
+                app:layout_constraintLeft_toLeftOf="@id/imageViewCouch"
+        />
 
         <Button
                 android:textColor="@color/white"
@@ -17,7 +46,7 @@
                 tools:text="@string/buy_lottery_ticket"
                 android:textSize="18sp"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:id="@+id/buy_ticket_btn" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +56,12 @@
 
         <Button
                 android:background="@drawable/circle_button"
-                android:text="@string/point_state"
-                tools:text="@{@string/pointsText(viewModel.points)}"
+                android:text="@{@string/pointsText(viewModel.points)}"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:id="@+id/point_state_btn"
                 android:layout_weight="1"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="18dp"
                 app:layout_constraintTop_toBottomOf="@+id/buy_ticket_btn"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/daily_bonus_btn"
         />
@@ -48,7 +76,7 @@
                 app:layout_constraintTop_toTopOf="@+id/point_state_btn"
                 app:layout_constraintBottom_toBottomOf="@+id/point_state_btn" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/point_state_btn"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="8dp" app:layout_constraintVertical_bias="0.0"/>
 
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -104,6 +132,32 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@+id/next_draw_tv"/>
         </android.support.constraint.ConstraintLayout>
+        <TextView
+                android:text="@{String.valueOf(viewModel.points)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8" app:layout_constraintStart_toEndOf="@+id/imageViewBicycle"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewBicycle"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewBicycle"/>
+        <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCouch"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewTickets"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCouch"
+                android:layout_marginStart="8dp"/>
+        <TextView
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                app:layout_constraintTop_toTopOf="@+id/imageViewTickets"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewTickets"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTickets"
+                android:layout_marginStart="8dp"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
