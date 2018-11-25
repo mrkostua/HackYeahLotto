@@ -6,59 +6,72 @@
         android:layout_height="match_parent"
         tools:context=".BonusRewardActivity"
         android:background="@drawable/gray_background">
-
-
-    <Button
-            android:layout_width="194dp"
-            android:layout_height="191dp"
-            android:id="@+id/buy_ticket_btn" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/treasure"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/textView4"
-            android:text="Click the trasure to get your\ndaily bonus" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/buy_ticket_btn" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.503"/>
-    <Button
-            android:text="Button"
-            android:layout_width="169dp"
-            android:layout_height="45dp"
-            android:background="@drawable/light_blue_button"
-            android:id="@+id/button" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" android:textColor="@android:color/white"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-            android:text="YOU WON"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView5" android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" android:textSize="28sp" android:textStyle="bold"
-            android:textColor="@android:color/black" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-            android:text="Definitely check tomorrow your new reward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView7" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/button" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="BONUS LOTTERY"
+            android:text="@string/bonus_lottery"
             android:layout_width="163dp"
             android:layout_height="30dp"
             android:id="@+id/textView9" android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" android:textSize="20sp" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:textColor="@android:color/black"/>
+
+    <Button
+            android:layout_width="194dp"
+            android:layout_height="191dp"
+            android:id="@+id/try_to_get_bonus_reward_btn" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/treasure"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/click_the_trasure"
+            android:text="@string/click_the_trasure_to_get_your_ndaily_bonus"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/try_to_get_bonus_reward_btn"/>
+    <Button
+            android:layout_width="169dp"
+            android:layout_height="45dp"
+            android:background="@drawable/light_blue_button"
+            android:id="@+id/get_details_about_won_bonus_reward_btn"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.487"
+            android:layout_marginTop="44dp" app:layout_constraintTop_toBottomOf="@+id/you_won_tv"/>
+    <TextView
+            android:text="@string/you_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/you_won_tv"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.502"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/click_the_trasure"/>
+    <TextView
+            android:text="@string/definitely_check_tomorrow_your_new_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:id="@+id/please_come_back_baby"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/get_details_about_won_bonus_reward_btn"/>
+    <TextView
+            android:text="@string/you_won_info"
+            android:layout_width="187dp"
+            android:layout_height="90dp"
+            android:id="@+id/details_bonus_reward"
+            app:layout_constraintBottom_toTopOf="@+id/please_come_back_baby" android:layout_marginBottom="11dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/you_won_tv" app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintVertical_bias="0.727"/>
 </android.support.constraint.ConstraintLayout>
