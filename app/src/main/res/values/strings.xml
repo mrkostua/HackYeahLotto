@@ -29,7 +29,7 @@
     <string name="bonus_lottery">BONUS LOTTERY</string>
     <string name="click_the_trasure_to_get_your_ndaily_bonus">Click the trasure to get your daily bonus</string>
     <string name="you_won_info">
-        You probably have won (or lost) and this text should explain how it comes and what next steps you can do to make it
+        You probably have won (or lost) and this text should explain how it comes and what next steps you can take to make it
         happen again.
     </string>
 </resources>
