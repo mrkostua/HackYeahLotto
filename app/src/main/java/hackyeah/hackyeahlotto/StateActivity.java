@@ -20,7 +20,7 @@ public class StateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_state);
+        setContentView(R.layout.activity_state);
         buyTicketBtn = findViewById(R.id.buy_ticket_btn);
         bonusBtn = findViewById(R.id.daily_bonus_btn);
         accountState = findViewById(R.id.point_state_btn);
