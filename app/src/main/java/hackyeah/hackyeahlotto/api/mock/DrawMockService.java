@@ -47,8 +47,8 @@ public class DrawMockService {
         return new Date(System.currentTimeMillis());
     }
 
-    static public Draw[] getDraws(long userId) {
-        return draws.toArray(new Draw[0]);
+    static public List<Draw> getDraws(long userId) {
+        return draws;
     }
 
 

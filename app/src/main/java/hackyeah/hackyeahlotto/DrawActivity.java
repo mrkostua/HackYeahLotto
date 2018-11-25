@@ -13,6 +13,10 @@ import hackyeah.hackyeahlotto.adapters.DrawItemListAdapter;
 import hackyeah.hackyeahlotto.api.mock.DrawMockService;
 import hackyeah.hackyeahlotto.model.Draw;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 
 public class DrawActivity extends AppCompatActivity implements DrawItemListAdapter.DrawItemListAdapterOnClickHandler {
 
@@ -114,7 +118,15 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
 //                e.printStackTrace();
 //                return null;
 //            }
-            return DrawMockService.getDraws(1L);
+            List<Draw> draws = DrawMockService.getDraws(1L);
+
+            Collections.sort(draws, new Comparator<Draw>() {
+                @Override
+                public int compare(Draw o1, Draw o2) {
+                    return o2.getGameStatus().compareTo(o1.getGameStatus());
+                }
+            });
+            return draws.toArray(new Draw[0]);
         }
 
         @Override
