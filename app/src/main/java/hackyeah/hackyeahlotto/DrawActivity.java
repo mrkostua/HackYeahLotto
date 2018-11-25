@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import hackyeah.hackyeahlotto.model.Draw;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 
 public class DrawActivity extends AppCompatActivity implements DrawItemListAdapter.DrawItemListAdapterOnClickHandler {
@@ -48,6 +50,15 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
         mRecyclerView.addItemDecoration(itemDecoration);
 //        mRecyclerView.addOnScrollListener(recyclerViewOnScrollListener);
         loadDrawsData();
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 
     private void loadDrawsData() {

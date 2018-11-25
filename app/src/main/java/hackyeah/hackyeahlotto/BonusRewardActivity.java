@@ -3,10 +3,12 @@ package hackyeah.hackyeahlotto;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -69,6 +71,14 @@ public class BonusRewardActivity extends AppCompatActivity {
                 getDetailsAboutBonusRewardWonBtn.setVisibility(View.VISIBLE);
             }
         });
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import hackyeah.hackyeahlotto.databinding.ActivityStateBinding;
 import hackyeah.hackyeahlotto.injection.ActivityScope;
 
 import javax.inject.Inject;
+import java.util.Objects;
 
 @ActivityScope
 public class StateActivity extends DaggerAppCompatActivity {
@@ -38,8 +40,16 @@ public class StateActivity extends DaggerAppCompatActivity {
         stateViewModel.subscribeToGPSResults();
         binding.executePendingBindings();
         binding.setLifecycleOwner(this);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return true;
+    }
 
     public void loginClickListener(View view) {
         Intent intentAllFeaturesActiivity = new Intent(this, AllFeaturesActivity.class);
