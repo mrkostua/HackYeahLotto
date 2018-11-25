@@ -9,8 +9,8 @@
 
 
     <Button
-            android:text="@string/buy_draw"
-            tools:text="@string/buy_draw"
+            android:text="@string/buy_lottery_ticket"
+            tools:text="@string/buy_lottery_ticket"
             android:textSize="18sp"
             android:layout_width="0dp"
             android:layout_height="129dp"
