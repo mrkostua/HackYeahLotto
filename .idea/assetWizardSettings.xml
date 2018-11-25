@@ -14,9 +14,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_twitter" />
+                            <entry key="height" value="184" />
+                            <entry key="outputName" value="ic_blue_button" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\Enviador\Desktop\twitter.svg" />
+                            <entry key="sourceFile" value="C:\Users\Enviador\Desktop\blue-button.svg" />
+                            <entry key="width" value="915" />
                           </map>
                         </option>
                       </PersistentState>
