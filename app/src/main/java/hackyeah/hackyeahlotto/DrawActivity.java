@@ -50,15 +50,6 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
         mRecyclerView.addItemDecoration(itemDecoration);
 //        mRecyclerView.addOnScrollListener(recyclerViewOnScrollListener);
         loadDrawsData();
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            finish();
-        }
-        return true;
     }
 
     private void loadDrawsData() {
@@ -78,29 +69,7 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
 //        Toast.makeText(this,"Selected",Toast.LENGTH_SHORT).show();
     }
 
-//    private RecyclerView.OnScrollListener recyclerViewOnScrollListener = new RecyclerView.OnScrollListener() {
-//        @Override
-//        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//            super.onScrollStateChanged(recyclerView, newState);
-//        }
-//
-//        @Override
-//        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-//            super.onScrolled(recyclerView, dx, dy);
-//            LinearLayoutManager layoutManager =(LinearLayoutManager) recyclerView.getLayoutManager();
-//            int visibleItemCount = layoutManager.getChildCount();
-//            int totalItemCount = layoutManager.getItemCount();
-//            int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-//
-//            if (!isLoading && !isLastPage) {
-//                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount
-//                        && firstVisibleItemPosition >= 0
-//                        && totalItemCount >= PAGE_SIZE) {
-//                    loadMoreItems();
-//                }
-//            }
-//        }
-//    };
+
 
     public class FetchWeatherTask extends AsyncTask<String, Void, Draw[]> {
 
@@ -113,26 +82,6 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
         @Override
         protected Draw[] doInBackground(String... params) {
 
-//            if (params.length == 0) {
-//                return null;
-//            }
-
-//            String location = params[0];
-//            URL weatherRequestUrl = NetworkUtils.buildUrl(location);
-//
-//            try {
-//                String jsonWeatherResponse = NetworkUtils
-//                        .getResponseFromHttpUrl(weatherRequestUrl);
-//
-//                String[] simpleJsonWeatherData = OpenWeatherJsonUtils
-//                        .getSimpleWeatherStringsFromJson(MainActivity.this, jsonWeatherResponse);
-//
-//                return simpleJsonWeatherData;
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                return null;
-//            }
             List<Draw> draws = DrawMockService.getDraws(1L);
 
             Collections.sort(draws, new Comparator<Draw>() {

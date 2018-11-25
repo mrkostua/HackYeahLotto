@@ -57,7 +57,7 @@
     <Button
             android:background="@drawable/light_blue_button"
             android:textColor="@android:color/white"
-            android:text="DRAW ACTIVITY"
+            android:text="LOTTERY TICKETS"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:id="@+id/btn_draw_activity"
