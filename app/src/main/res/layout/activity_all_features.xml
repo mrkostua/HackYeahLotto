@@ -8,6 +8,8 @@
         android:background="@drawable/gray_background"
         tools:context=".AllFeaturesActivity">
     <Button
+            android:background="@drawable/light_blue_button"
+            android:textColor="@android:color/white"
             android:text="@string/state_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,6 +19,8 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
+            android:background="@drawable/light_blue_button"
+            android:textColor="@android:color/white"
             android:text="@string/invite_friends"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,6 +30,8 @@
             app:layout_constraintHorizontal_bias="0.491" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btn_draw_activity"/>
     <Button
+            android:background="@drawable/light_blue_button"
+            android:textColor="@android:color/white"
             android:text="@string/bonus_reward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +42,8 @@
             app:layout_constraintTop_toBottomOf="@+id/friend_invite_btn"
     />
     <Button
+            android:background="@drawable/light_blue_button"
+            android:textColor="@android:color/white"
             android:text="DRAW ACTIVITY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
