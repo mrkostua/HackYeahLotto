@@ -1,6 +1,7 @@
 package hackyeah.hackyeahlotto.adapters;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
             case WIN:
                 drawStatus = context.getString(R.string.game_win_status);
                 colorId = context.getResources().getColor(android.R.color.holo_green_light);
+
                 break;
             case LOST:
                 drawStatus = context.getString(R.string.game_lost_status);
@@ -56,7 +58,11 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
 
         holder.mGameName.setText(draw.getGame().name().replace('_', ' ')); //TODO translate
         holder.mGameShortInfoTextView.setText("");
-//        holder.itemView.setBackground(background);
+        if (draw.getBgState()) {
+            holder.itemView.setBackground(context.getDrawable(R.drawable.shape_round_blue));
+        } else {
+            holder.itemView.setBackground(context.getDrawable(R.drawable.shape_round_gray));
+        }
     }
 
     @Override
@@ -76,6 +82,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
         private final TextView mGameName;
         private final TextView mGameShortInfoTextView;
         private final TextView mDrawStatusTextView;
+        private final ConstraintLayout clDrawMain;
 
 
         public DrawItemListViewHolder(View itemView) {
@@ -85,6 +92,7 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
             mGameName = itemView.findViewById(R.id.tv_game_name);
             mGameShortInfoTextView = itemView.findViewById(R.id.tv_game_short_info);
             mDrawStatusTextView = itemView.findViewById(R.id.tv_draw_status);
+            clDrawMain = itemView.findViewById(R.id.clDrawMain);
 
             itemView.setOnClickListener(this);
         }
