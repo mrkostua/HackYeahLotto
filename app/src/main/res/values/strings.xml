@@ -17,6 +17,7 @@
         Choose a channel to share your favourite application with friends inviting them using your own words or using a
         predefined message.
     </string>
+    <string name="login">Login</string>
     <string name="game_win_status">Win</string>
     <string name="game_lost_status">Lost</string>
     <string name="game_waiting_status">Pending drawing</string>
