@@ -32,34 +32,31 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
         date = DateUtils.formatDateTime(context, draw.getDrawingDate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_YEAR);
         holder.mDrawingDate.setText(context.getString(R.string.draw_drawing_date_desc, date));
         String drawStatus;
-        android.graphics.drawable.Drawable background;
+        int colorBackgroundId;
         int colorId;
         switch (draw.getGameStatus()) {
             case WIN:
                 drawStatus = context.getString(R.string.game_win_status);
-                background = context.getDrawable(R.drawable.gray_wide_button);
                 colorId = context.getResources().getColor(android.R.color.holo_green_light);
                 break;
             case LOST:
                 drawStatus = context.getString(R.string.game_lost_status);
-                background = context.getDrawable(R.drawable.gray_wide_button);
                 colorId = context.getResources().getColor(android.R.color.holo_red_light);
                 break;
             case WAITING:
                 drawStatus = context.getString(R.string.game_waiting_status);
-                background = context.getDrawable(R.drawable.blue_wide_button);
-                colorId = context.getResources().getColor(android.R.color.holo_green_light);
+                colorId = context.getResources().getColor(android.R.color.darker_gray);
                 break;
             default:
-                background = context.getDrawable(R.drawable.blue_wide_button);
                 colorId = context.getResources().getColor(android.R.color.holo_green_light);
                 drawStatus = "";
         }
         holder.mDrawStatusTextView.setText(drawStatus);
         holder.mDrawStatusTextView.setTextColor(colorId);
+
         holder.mGameName.setText(draw.getGame().name().replace('_', ' ')); //TODO translate
         holder.mGameShortInfoTextView.setText("");
-        holder.itemView.setBackground(background);
+//        holder.itemView.setBackground(background);
     }
 
     @Override
