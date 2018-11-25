@@ -8,8 +8,8 @@ import java.util.*
  * @author Kostiantyn Prysiazhnyi on 11/24/2018.
  */
 @Entity(tableName = "gps")
-data class GPSDDo( //TODO what to save , how to save time ?????
+data class GPSDDo(
     @PrimaryKey(autoGenerate = true) var id: Int? = null, var latitutde: Double = 0.0,
     var longitude: Double = 0.0,
-    var date: Date?)
-//TODO to save speed lat, long,
+    var speed: Float = 0.0F,
+    var time: Long)

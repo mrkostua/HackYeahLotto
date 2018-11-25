@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -21,10 +20,18 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import dagger.android.support.DaggerAppCompatActivity;
+import hackyeah.hackyeahlotto.db.DbHelper;
+import hackyeah.hackyeahlotto.injection.ActivityScope;
 import hackyeah.hackyeahlotto.login.LoginActivity;
 import hackyeah.hackyeahlotto.service.GPSService;
 
-public class HelloActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+@ActivityScope
+public class HelloActivity extends DaggerAppCompatActivity {
+   @Inject
+    public DbHelper dbHelper;
     public GPSService gpsService;
 
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -61,6 +68,7 @@ public class HelloActivity extends AppCompatActivity {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         if (gpsService != null) {
+                            gpsService.setDbHelper(dbHelper);
                             gpsService.startTracking();
                         } else {
                             Log.i(this.getClass().getSimpleName(), "BAD");

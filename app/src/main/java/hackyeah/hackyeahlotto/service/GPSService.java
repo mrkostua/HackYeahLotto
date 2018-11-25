@@ -14,8 +14,18 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
+import hackyeah.hackyeahlotto.db.DbHelper;
+import hackyeah.hackyeahlotto.db.GPSDDo;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 
 public class GPSService extends Service {
+    public DbHelper dbHelper;
+    private CompositeDisposable disposables = new CompositeDisposable();
+
+
     private final LocationServiceBinder binder = new LocationServiceBinder();
     private final String TAG = "GPSService";
     private LocationListener mLocationListener;
@@ -29,62 +39,73 @@ public class GPSService extends Service {
         return binder;
     }
 
-    private class LocationListener implements android.location.LocationListener
-    {
+    private class LocationListener implements android.location.LocationListener {
         private Location lastLocation = null;
         private final String TAG = "LocationListener";
         private Location mLastLocation;
 
-        public LocationListener(String provider)
-        {
+        public LocationListener(String provider) {
             mLastLocation = new Location(provider);
         }
 
         @Override
-        public void onLocationChanged(Location location)
-        {
+        public void onLocationChanged(Location location) {
             mLastLocation = location;
-            Log.i(TAG, "LocationChanged: "+location);
-             Toast.makeText(getApplicationContext(),"Tracking is started successfully",Toast.LENGTH_LONG).show();
+            Log.i(TAG, "LocationChanged: " + (dbHelper == null ? "null" : "not"));
+            Toast.makeText(getApplicationContext(), "Tracking is started successfully", Toast.LENGTH_LONG).show();
+            disposables.add(dbHelper.addGPSData(new GPSDDo(null, location.getLatitude(), location.getLongitude(), location.getSpeed(), location.getTime()))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(new DisposableSingleObserver<Long>() {
+                        @Override
+                        public void onSuccess(Long resultAmount) {
+                            if (resultAmount == 1) {
+                                Log.d(TAG, "HURAAAA");
+                            } else {
+                                Log.d(TAG, "BAD");
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Log.e(TAG, "Error " + e.toString());
+
+                        }
+                    })
+            );
         }
 
         @Override
-        public void onProviderDisabled(String provider)
-        {
+        public void onProviderDisabled(String provider) {
             Log.e(TAG, "onProviderDisabled: " + provider);
         }
 
         @Override
-        public void onProviderEnabled(String provider)
-        {
+        public void onProviderEnabled(String provider) {
             Log.e(TAG, "onProviderEnabled: " + provider);
         }
 
         @Override
-        public void onStatusChanged(String provider, int status, Bundle extras)
-        {
+        public void onStatusChanged(String provider, int status, Bundle extras) {
             //TODO update Database (also in error or stop of gps send speed 0 with last saved coordinates)
             Log.e(TAG, "onStatusChanged: " + status);
         }
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         return START_NOT_STICKY;
     }
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         Log.i(TAG, "onCreate");
         startForeground(12345678, getNotification());
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
         super.onDestroy();
         if (mLocationManager != null) {
             try {
@@ -101,17 +122,21 @@ public class GPSService extends Service {
         }
     }
 
+    public void setDbHelper(DbHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
+
     public void startTracking() {
         initializeLocationManager();
         mLocationListener = new LocationListener(LocationManager.GPS_PROVIDER);
 
         try {
-            mLocationManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE, mLocationListener );
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE, mLocationListener);
 
         } catch (SecurityException ex) {
             Log.i(TAG, "fail to request location update, ignore", ex);
         } catch (IllegalArgumentException ex) {
-             Log.d(TAG, "gps provider does not exist " + ex.getMessage());
+            Log.d(TAG, "gps provider does not exist " + ex.getMessage());
         }
 
     }
@@ -135,7 +160,7 @@ public class GPSService extends Service {
         return builder.build();
     }
 
-    
+
     public class LocationServiceBinder extends Binder {
         public GPSService getService() {
             return GPSService.this;
