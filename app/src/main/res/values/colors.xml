@@ -8,4 +8,6 @@
     <color name="background">#2eb0b7</color>
     <color name="textColor">#fff</color>
     <color name="secondTextColor">#6b6b6b</color>
+
+    <color name="pb_color">#3498db</color>
 </resources>

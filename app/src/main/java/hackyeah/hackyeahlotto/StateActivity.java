@@ -1,15 +1,22 @@
 package hackyeah.hackyeahlotto;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import dagger.android.support.DaggerAppCompatActivity;
+import hackyeah.hackyeahlotto.databinding.ActivityStateBinding;
+import hackyeah.hackyeahlotto.injection.ActivityScope;
 
+import javax.inject.Inject;
 
-public class StateActivity extends AppCompatActivity {
+@ActivityScope
+public class StateActivity extends DaggerAppCompatActivity {
+    @Inject
+    public StateViewModel stateViewModel;
 
     private Button buyTicketBtn;
     private Button bonusBtn;
@@ -20,12 +27,17 @@ public class StateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_state);
+        ActivityStateBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_state);
+        binding.setViewModel(stateViewModel);
         buyTicketBtn = findViewById(R.id.buy_ticket_btn);
         bonusBtn = findViewById(R.id.daily_bonus_btn);
         accountState = findViewById(R.id.point_state_btn);
         seeResultBtn = findViewById(R.id.see_results_btn);
         nextDrawTv = findViewById(R.id.next_draw_tv);
+
+        stateViewModel.subscribeToGPSResults();
+        binding.executePendingBindings();
+        binding.setLifecycleOwner(this);
     }
 
 
@@ -46,4 +58,7 @@ public class StateActivity extends AppCompatActivity {
     }
 
 
+    public void setButtonText(int pointAmounts) {
+        accountState.setText(getString(R.string.pointsText, pointAmounts));
+    }
 }
