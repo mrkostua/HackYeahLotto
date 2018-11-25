@@ -5,7 +5,7 @@
     <string name="bonus_reward">Bonus Reward</string>
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
     <string name="get_bonus_reward">Get Bonus Reward</string>
-    <string name="buy_draw">Buy draw</string>
+    <string name="task_date">Buy lottery ticket</string>
     <string name="point_state">Actual points:</string>
     <string name="daily_bonus_name">Bonus reward</string>
     <string name="next_draw_const_text">Next drawing</string>
@@ -17,4 +17,10 @@
         Choose a channel to share your favourite application with friends inviting them using your own words or using a
         predefined message.
     </string>
+    <string name="game_win_status">Win</string>
+    <string name="game_lost_status">Lost</string>
+    <string name="game_waiting_status">Pending drawing</string>
+    <string name="draw_purchase_date_desc">Purchase date:%s</string>
+    <string name="draw_drawing_date_desc">Drawing date: %s</string>
+    <string name="buy_lottery_ticket">Buy lottery ticket</string>
 </resources>
