@@ -8,8 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".StateActivity"
-            android:background="@color/gray_background">
-
+            android:background="@drawable/gray_background">
 
     <Button
             android:text="@string/buy_draw"
