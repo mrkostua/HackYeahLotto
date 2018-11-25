@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -42,6 +43,9 @@ public class DrawActivity extends AppCompatActivity implements DrawItemListAdapt
 
         mRecyclerView.setAdapter(mDrawsAdapter);
         mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
+        RecyclerView.ItemDecoration itemDecoration = new
+                DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(itemDecoration);
 //        mRecyclerView.addOnScrollListener(recyclerViewOnScrollListener);
         loadDrawsData();
     }
