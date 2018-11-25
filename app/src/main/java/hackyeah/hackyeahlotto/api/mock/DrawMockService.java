@@ -30,6 +30,7 @@ public class DrawMockService {
                 drawingDate = new Date(System.currentTimeMillis() + MILISECNDS_IN_DAY * i);
             }
             GameStatus gameStatus = GameStatus.WAITING;
+
             if (today().after(drawingDate)) {
                 if (i % 4 == 0) {
                     gameStatus = GameStatus.WIN;
@@ -37,7 +38,8 @@ public class DrawMockService {
                     gameStatus = GameStatus.LOST;
                 }
             }
-            Draw draw = new Draw(purchase, drawingDate, Game.TRAVEL_WITH_LOTTO, gameStatus);
+            Boolean bg = GameStatus.WAITING == gameStatus;
+            Draw draw = new Draw(purchase, drawingDate, Game.TRAVEL_WITH_LOTTO, gameStatus,bg );
             draws.add(draw);
         }
         return draws;
