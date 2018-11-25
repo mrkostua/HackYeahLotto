@@ -38,16 +38,16 @@ public class DrawItemListAdapter extends RecyclerView.Adapter<DrawItemListAdapte
         switch (draw.getGameStatus()) {
             case WIN:
                 drawStatus = context.getString(R.string.game_win_status);
-                colorId = context.getResources().getColor(android.R.color.holo_green_light);
+                colorId = context.getResources().getColor(android.R.color.holo_green_dark);
 
                 break;
             case LOST:
                 drawStatus = context.getString(R.string.game_lost_status);
-                colorId = context.getResources().getColor(android.R.color.holo_red_light);
+                colorId = context.getResources().getColor(android.R.color.holo_red_dark);
                 break;
             case WAITING:
                 drawStatus = context.getString(R.string.game_waiting_status);
-                colorId = context.getResources().getColor(android.R.color.darker_gray);
+                colorId = context.getResources().getColor(android.R.color.black);
                 break;
             default:
                 colorId = context.getResources().getColor(android.R.color.holo_green_light);
