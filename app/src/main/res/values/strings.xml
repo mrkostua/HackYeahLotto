@@ -6,7 +6,7 @@
     <string name="add_link_icon_downloaded">https://visualpharm.com/free-icons/running-595b40b65ba036ed117d3bb3</string>
     <string name="get_bonus_reward">Get Bonus Reward</string>
     <string name="task_date">Buy lottery ticket</string>
-    <string name="point_state">Actual points:</string>
+    <string name="point_state">Actual points: 25</string>
     <string name="daily_bonus_name">Bonus reward</string>
     <string name="next_draw_const_text">Next drawing</string>
     <string name="see_results">See last results</string>
@@ -24,4 +24,12 @@
     <string name="draw_purchase_date_desc">Purchase date:%s</string>
     <string name="draw_drawing_date_desc">Drawing date: %s</string>
     <string name="buy_lottery_ticket">Buy lottery ticket</string>
+    <string name="you_won">YOU WON</string>
+    <string name="definitely_check_tomorrow_your_new_reward">Definitely check tomorrow your new reward</string>
+    <string name="bonus_lottery">BONUS LOTTERY</string>
+    <string name="click_the_trasure_to_get_your_ndaily_bonus">Click the trasure to get your daily bonus</string>
+    <string name="you_won_info">
+        You probably have won (or lost) and this text should explain how it comes and what next steps you can take to make it
+        happen again.
+    </string>
 </resources>
