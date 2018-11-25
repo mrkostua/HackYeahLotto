@@ -13,9 +13,8 @@
     <string name="error_message">Error in fetch.</string>
     <string name="click_to_see_bonus_for_inviting">Click to see bonus for inviting</string>
     <string name="pointsText">Actual points: %d</string>
-    <string name="choose_a_channel_to_share_your_favourite_application_with_friends_inviting_them_using_your_own_words_or_using_a_predefined_message">
-        Choose a channel to share your favourite application with friends inviting them using your own words or using a
-        predefined message.
+    <string name="share_app_reward_message">
+        Choose a channel to share your favourite application with friends. Get REWARDED for each recommendation!
     </string>
     <string name="login">Login</string>
     <string name="game_win_status">Win</string>
@@ -32,4 +31,8 @@
         You probably have won (or lost) and this text should explain how it comes and what next steps you can take to make it
         happen again.
     </string>
+    <string name="e_mail">E-MAIL</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="invite_by">INVITE BY :</string>
+    <string name="message_sms">MESSAGE SMS</string>
 </resources>
